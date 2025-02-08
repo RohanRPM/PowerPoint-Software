@@ -1,0 +1,15 @@
+[
+    {
+        "title": "Welcome Slide",
+        "content": "Welcome to the presentation!",
+        "images": []
+    },
+    {
+        "title": "Slide 2",
+        "content": "This is a graph",
+        "images": [
+            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_4.png",
+            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_6.png"
+        ]
+    }
+]
