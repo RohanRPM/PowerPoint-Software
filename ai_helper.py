@@ -16,6 +16,7 @@ class AISummarizer:
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         self.session = ort.InferenceSession("model.onnx")
 
+    
     def export_model_to_onnx(self, path):
         # Load the PyTorch model and convert it to TensorFlow
         model = TFAutoModelForSeq2SeqLM.from_pretrained(self.model_name, from_pt=True)
