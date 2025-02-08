@@ -22,7 +22,7 @@ Before running the application, ensure you have the following installed:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/presentation-tool.git
+   git clone https://github.com/RohanRPM/PowerPoint-Software.git
    cd presentation-tool
    pip install -r requirements.txt
    python main.py
