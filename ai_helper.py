@@ -1,8 +1,7 @@
-from transformers import pipeline, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import onnxruntime as ort
-from transformers.onnx import export
+from transformers.onnx import export as onnx_export
 from pathlib import Path
-from transformers import TFAutoModelForSeq2SeqLM, AutoTokenizer
 
 class AISummarizer:
     def __init__(self):
@@ -14,19 +13,16 @@ class AISummarizer:
         if not onnx_path.exists():
             self.export_model_to_onnx(onnx_path)
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.session = ort.InferenceSession("model.onnx")
+        self.session = ort.InferenceSession(str(onnx_path))  # Ensure path is string
 
-    
     def export_model_to_onnx(self, path):
-        # Load the PyTorch model and convert it to TensorFlow
-        model = TFAutoModelForSeq2SeqLM.from_pretrained(self.model_name, from_pt=True)
+        # Load the PyTorch model
+        model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
         tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         
-        # Create a summarization pipeline
-        summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
-        
-        # Export the model to ONNX
-        export(summarizer.model, summarizer.tokenizer, path, opset=12, output=path)
+        # Corrected ONNX export function call
+        onnx_export(preprocessor=tokenizer, model=model, output=path, opset=12)
+
         print("Exported model to ONNX.")
 
     def summarize(self, text, max_length=50):
