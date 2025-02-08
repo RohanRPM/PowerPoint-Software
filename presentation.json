@@ -6,10 +6,49 @@
     },
     {
         "title": "Slide 2",
-        "content": "This is a graph",
+        "content": "This is slide 2 of the presentation",
         "images": [
-            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_4.png",
-            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_6.png"
+            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_5.png"
         ]
+    },
+    {
+        "title": "Slide 3",
+        "content": "dfsd",
+        "images": []
+    },
+    {
+        "title": "Slide 4",
+        "content": "",
+        "images": []
+    },
+    {
+        "title": "Slide 5",
+        "content": "",
+        "images": []
+    },
+    {
+        "title": "Slide 6",
+        "content": "",
+        "images": []
+    },
+    {
+        "title": "Slide 7",
+        "content": "",
+        "images": []
+    },
+    {
+        "title": "Slide 8",
+        "content": "",
+        "images": []
+    },
+    {
+        "title": "Slide 9",
+        "content": "",
+        "images": []
+    },
+    {
+        "title": "Slide 10",
+        "content": "",
+        "images": []
     }
 ]
