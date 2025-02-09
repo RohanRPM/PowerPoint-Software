@@ -28,6 +28,7 @@ class AISummarizer:
             model=model,
             output=path,
             opset=12, 
+            
             tokenizer=tokenizer,  # Keep tokenizer for compatibility
             feature="seq2seq-lm",  # Specify model type
             dynamic_axes={"input_ids": {0: "batch_size"}, "attention_mask": {0: "batch_size"}}, 
