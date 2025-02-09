@@ -6,49 +6,32 @@
     },
     {
         "title": "Slide 2",
-        "content": "This is slide 2 of the presentation",
-        "images": [
-            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_5.png"
-        ]
+        "content": "This the Second Slide",
+        "images": []
     },
     {
         "title": "Slide 3",
-        "content": "dfsd",
+        "content": "",
         "images": []
     },
     {
         "title": "Slide 4",
-        "content": "",
-        "images": []
+        "content": "This is the slide describing information about charts",
+        "images": [
+            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_5.png",
+            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_4.png"
+        ]
     },
     {
         "title": "Slide 5",
-        "content": "",
-        "images": []
+        "content": "This is the slide giving the information about Income and expenditure",
+        "images": [
+            "C:/Users/rohan/OneDrive/Desktop/VNIT 7th sem/Economics/Figure_3.png"
+        ]
     },
     {
         "title": "Slide 6",
-        "content": "",
-        "images": []
-    },
-    {
-        "title": "Slide 7",
-        "content": "",
-        "images": []
-    },
-    {
-        "title": "Slide 8",
-        "content": "",
-        "images": []
-    },
-    {
-        "title": "Slide 9",
-        "content": "",
-        "images": []
-    },
-    {
-        "title": "Slide 10",
-        "content": "",
+        "content": "This is the slide of thanking all.",
         "images": []
     }
 ]

@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, scrolledtext
 from PIL import Image, ImageTk
 import json
+import google.generativeai as genai
 
 class PresentationApp:
     def __init__(self, root):
@@ -9,6 +10,10 @@ class PresentationApp:
         self.root.title("Dynamic Presentation Tool")
         self.root.geometry("1000x700")
         self.root.configure(bg="#f0f0f0")
+        
+        # Initialize Gemini API
+        genai.configure(api_key="AIzaSyBvywV-ONNdCH-6_SXOEKWmn9C9A7e_ub4")
+        self.model = genai.GenerativeModel('gemini-2.0-flash')
         
         # Title Label
         self.title_label = tk.Label(root, text="Dynamic Presentation Tool", font=("Arial", 20, "bold"), bg="#00509E", fg="white", padx=20, pady=10)
@@ -50,6 +55,9 @@ class PresentationApp:
         
         # Image Upload Button
         ttk.Button(self.control_frame, text="Add Image", command=self.add_image).pack(side=tk.RIGHT, padx=5)
+        
+        # Summarize Button
+        ttk.Button(self.control_frame, text="Summarize", command=self.summarize_content).pack(side=tk.RIGHT, padx=5)
         
         # Initialize slides
         self.slides = [{"title": "Welcome Slide", "content": "Welcome to the presentation!", "images": []}]
@@ -137,6 +145,21 @@ class PresentationApp:
             photo = ImageTk.PhotoImage(img)
             self.slides[self.current_slide].setdefault("images", []).append({"path": file_path, "photo": photo})
             self.display_slide()
+    
+    def summarize_content(self):
+        content = self.text_editor.get("1.0", tk.END).strip()
+        if content:
+            try:
+                response = self.model.generate_content(f"Summarize the following text for a presentation slide: {content}")
+                summary = response.text
+                self.text_editor.delete("1.0", tk.END)
+                self.text_editor.insert(tk.END, summary)
+                self.slides[self.current_slide]["content"] = summary
+                self.display_slide()
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to summarize content: {e}")
+        else:
+            messagebox.showwarning("Warning", "Please enter some content to summarize.")
 
 if __name__ == "__main__":
     root = tk.Tk()
