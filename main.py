@@ -3,6 +3,16 @@ from tkinter import ttk, filedialog, messagebox, scrolledtext
 from PIL import Image, ImageTk
 import json
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv("GENAI_API_KEY")
+
+# Initialize Gemini API
+if API_KEY:
+    genai.configure(api_key=API_KEY)
+else:
+    raise ValueError("API key not found! Please check your .env file.")
 
 class PresentationApp:
     def __init__(self, root):
@@ -12,7 +22,7 @@ class PresentationApp:
         self.root.configure(bg="#f0f0f0")
         
         # Initialize Gemini API
-        genai.configure(api_key="AIzaSyBvywV-ONNdCH-6_SXOEKWmn9C9A7e_ub4")
+        genai.configure(api_key=API_KEY)
         self.model = genai.GenerativeModel('gemini-2.0-flash')
         
         # Title Label
